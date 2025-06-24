@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming soon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg"></div>
+    <nav class="nav">
+        <div class="container">
+            <h1 class="logo">Aqua</h1>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Item</a>
+                <a href="#" class="nav-link">Item</a>
+            </div>
+            <div class="bar">
+                <div class="item item1"></div>
+                <div class="item item2"></div>
+                <div class="item item3"></div>
+            </div>
+        </div>
+    </nav>
+    <div class="cs">
+        <h1 class="title">Aqua</h1>
+        <p class="desc">Coming soon.</p>
+        <div class="timer">
+            <div class="box d">
+                <h1>--</h1>
+                <p>Day(s)</p>
+            </div>
+            <div class="box h">
+                <h1>--</h1>
+                <p>Hour(s)</p>
+            </div>
+            <div class="box m">
+                <h1>--</h1>
+                <p>Minute(s)</p>
+            </div>
+            <div class="box s">
+                <h1>--</h1>
+                <p>Second(s)</p>
+            </div>
+        </div>
+        <div class="input">
+            <input type="email" name="" id="" placeholder="Email">
+            <button>Subcible</button>
+        </div>
+        <div class="social">
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="mailto:duyvuhoang288@gmail.com"><i class="fab fa-google"></i></a>
+            <a href="https://www.facebook.com/d29dev/"><i class="fab fa-facebook"></i></a>
+            <a href="tel:+84343110567"><i class="fas fa-phone"></i></a>
+        </div>
+    </div>
+    <a href="#" class="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const bar = $(".bar")
+        const scrollBtn = $(".scrollTop")
+        bar.onclick = function () {
+            this.classList.toggle("change")
+        }
+        window.onscroll = function () {
+            if (this.scrollY > 0) scrollBtn.classList.add("show")
+            else scrollBtn.classList.remove("show")
+        }
+        const launchDate = new Date("2025-08-08T00:00:00").getTime();
+        const dE = $(".box.d > h1")
+        const hE = $(".box.h > h1")
+        const mE = $(".box.m > h1")
+        const sE = $(".box.s > h1")
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                timer.innerHTML = "We Have Arrived!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            dE.innerHTML = days
+            hE.innerHTML = hours
+            mE.innerHTML = minutes
+            sE.innerHTML = seconds
+            ;
+        }, 1000);
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text: #fff;
+    --aqua: #4be;
+    --font: "Roboto", arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth !important;
+    font-size: 62.5%;
+    height: 100%;
+    position: relative;
+    font-family: var(--font);
+}
+
+body {
+    color: var(--text);
+    height: 100%;
+    display: flex;
+    font-size: 1.6rem;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(#000, transparent), url(bg.jpg) center / cover no-repeat;
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* display: flex; */
+    /* height: 40px; */
+    /* z-index: 0;
+    align-items: center;
+    justify-content: space-around; */
+}
+
+.nav .container {
+    padding: 0 20px;
+    margin: auto;
+    max-width: 100%;
+    width: 1200px;
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    /* justify-self: right; */
+    font-size: 2.4rem;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    
+}
+
+.nav-links {
+    cursor: default;
+}
+
+.nav-link {
+    text-decoration: none;
+    margin: 0 4px;
+    font: var(--font)   ;
+    color: var(--text)  ;
+}
+
+.bar {
+    display: none;
+}
+
+.bar .item {
+    width: 2rem;
+    height: .2rem;
+    margin: .4rem;
+    background: var(--text);
+    transition: .4s ease;
+}
+
+.bar.change .item.item2 {
+    opacity: 0;
+}
+
+.bar.change .item.item1 {
+    transform: translate(0, .6rem) rotate(45deg);
+}
+
+.bar.change .item.item3 {
+    transform: translate(0, -.6rem) rotate(-45deg);
+}
+
+.cs {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+.cs .title {
+    font-size: 4rem;
+}
+
+.cs .desc {
+    font-size: 2rem;
+}
+
+.cs .timer {
+    display: flex;
+    margin: 16px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.cs .box {
+    border: 1px solid #fff;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+    border-radius: 4px;
+    flex-direction: column;
+    padding: 48px;
+    margin: 4px;
+    transition: transform 0.3s ease;
+}
+
+.cs .box:hover {
+    transform: scale(1.2);
+}
+
+.cs .box:hover ::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    /* width: 200%;
+    height: 200%; */
+    animation: fillSquare 1s ease forwards;
+    border-radius: 50%;
+    background: #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fillSquare {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    
+    100% {
+        width: 200%;
+        height: 200%;
+    } 
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    transition: .4s ease;
+    border-radius: 16px;
+    border: 1px solid var(--aqua);
+    overflow: hidden;
+}
+
+.input:hover {
+    /* transform: scale(1.2); */
+    border-radius: 0;
+}
+
+.input input:focus {
+    background: #fff4;
+    /* --text: #00f; */
+}
+
+.input input {
+    padding: 0 16px;
+    font-family: var(--font);
+    flex: 1;
+    font-size: 1.6rem;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--text);
+}
+
+.input input::placeholder {
+    color: var(--font);
+}
+
+.input button {
+    border: none;
+    cursor: pointer;
+    background: var(--aqua);
+    color: #fff;
+      transition: flex 0.4s linear;
+    font-size: 1.6rem;
+    font-family: var(--font);
+    width: 80px;
+}
+
+.input button:hover {
+    flex: 1;
+}
+
+.social {
+    margin-top: 20px;
+}
+
+.social a {
+    color: var(--text);
+    display: inline-block;
+    transition: all .4s ease;
+    font-size: 2rem;
+    padding: 16px;
+    margin: 0 4px;
+    border-radius: 4px;
+    border: 1px solid var(--text);
+}
+
+.social a:hover {
+    color: var(--aqua);
+    border-color: var(--aqua);
+}
+
+.scrollTop {
+    position: fixed;
+    z-index: 4;
+    right: 16px;
+    width: 40px;
+    display: none;
+    height: 40px;
+    /* background: #000; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--text);
+    border-radius: 4px;
+    bottom: 16px;
+}
+
+.scrollTop.show {
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    .bar {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    }
+}
